@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css';
+import s from './ProfileCard.module.css';
 
 const ProfileCard = () => {
   const contacts = [
@@ -9,27 +9,27 @@ const ProfileCard = () => {
   ];
 
   return (
-    <div className="profile-card">
+    <div className={s.profile}>
       <img
         src="https://avatars.mds.yandex.net/i?id=bd172841fc20b1aabb3ca214a1fcb7e5be0048a7-10467522-images-thumbs&n=13"
         alt="Обложка"
-        className="cover-photo"
+        className={s.photo}
       />
 
-      <div className="profile-info">
+      <div className={s.info}>
         <img
           src="https://basik.ru/images/jason_lee_childs/085_jason_lee_childs.jpg"
           alt="Аватар"
-          className="avatar"
+          className={s.avatar}
         />
 
-        <div className="user-details">
+        <div className={s.user}>
           <h2>Дмитрий Баранов</h2>
           <p>Добро пожаловать на мою страницу!</p>
 
-          <div className="contacts">
+          <div className={s.contacts}>
             {contacts.map((contact, index) => (
-              <div key={index} className="contact-item">
+              <div key={index} className={s.item}>
                 <span>{contact.icon}</span> {contact.text}
               </div>
             ))}
