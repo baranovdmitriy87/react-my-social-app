@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from './components/Header';
-import Sidebar from './components/Sidebar';
-import ProfileCard from './components/ProfileCard';
+import Header from './components/Header/Header';
+import Sidebar from './components/Sidebar/Sidebar';
+import Profile from './components/Profile/Profile';
 import './App.css';
 
 const App = () => {
@@ -10,7 +10,7 @@ const App = () => {
       <Header />
       <Sidebar />
       <main className="main-content">
-        <ProfileCard />
+        <Profile />
       </main>
     </div>
   );

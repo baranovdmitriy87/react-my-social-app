@@ -1,10 +1,11 @@
 import React from 'react';
-import s from './ProfileCard.module.css';
+import s from './Profile.module.css';
+import MyPosts from './MyPosts/MyPosts';
 
-const ProfileCard = () => {
+const Profile = () => {
   const contacts = [
-    { icon: '📱', text: '+7 (123) 456-78-90' },
-    { icon: '✉️', text: 'user@example.com' },
+    { icon: '📱', text: '+7 (906) 735-11-37' },
+    { icon: '✉️', text: 'baranovdmitriy87@mail.ru' },
     { icon: '🏠', text: 'Москва, Россия' }
   ];
 
@@ -36,8 +37,11 @@ const ProfileCard = () => {
           </div>
         </div>
       </div>
+
+      <MyPosts />
+
     </div>
   );
 };
 
-export default ProfileCard;
+export default Profile;
