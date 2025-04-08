@@ -37,9 +37,7 @@ const Profile = () => {
           </div>
         </div>
       </div>
-
       <MyPosts />
-
     </div>
   );
 };
