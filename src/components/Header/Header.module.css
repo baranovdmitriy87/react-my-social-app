@@ -9,6 +9,14 @@
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo p {
+  font-family: 'Courier New', Courier, monospace;
   font-size: 24px;
   font-weight: bold;
+  color: white;
+  margin-left: 50px;
 }

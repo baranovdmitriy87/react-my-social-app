@@ -1,5 +1,5 @@
-.sidebar {
-  grid-area: sidebar;
+.navbar {
+  grid-area: navbar;
   background-color: #f0f2f5;
   padding: 20px;
   border-right: 1px solid #ddd;

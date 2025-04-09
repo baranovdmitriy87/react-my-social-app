@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './components/Header/Header';
-import Sidebar from './components/Sidebar/Sidebar';
+import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
 import Diologs from './components/Diologs/Diologs';
 import Friends from './components/Friends/Friends';
@@ -14,7 +14,7 @@ const App = () => {
     <BrowserRouter>
       <div className="app-container">
         <Header />
-        <Sidebar />
+        <Navbar />
         <main className="main-content">
           <Routes>
             <Route path='/dialogs' Component={Diologs} />
