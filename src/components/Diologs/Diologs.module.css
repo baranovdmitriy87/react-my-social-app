@@ -1,5 +1,108 @@
-.title {
-  font-size: 24px;
-  font-weight: 600;
-  color: black;
+
+/* Стили для колонки с пользователями */
+
+.dialogs{
+  display: flex;
+  height: 100vh;
+}
+
+.dialogsWrapper {
+  width: 250px;
+  background-color: #f5f5f5;
+  border-right: 1px solid #ddd;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.dialogsList {
+  list-style: none;
+}
+
+.item {
+  padding: 10px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.2s;
+}
+
+.item:hover {
+  background-color: #e0e0e0;
+}
+
+.item.active {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Стили для колонки с сообщениями */
+.messages {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.messagesContainer {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #fff;
+}
+
+.message {
+  margin-bottom: 15px;
+  padding: 12px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  max-width: 70%;
+}
+
+.message.sent {
+  margin-left: auto;
+  background-color: #007bff;
+  color: white;
+}
+
+.info {
+  font-size: 0.8em;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.text {
+  line-height: 1.4;
+}
+
+/* Стили для формы ввода */
+.input {
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-top: 1px solid #ddd;
+}
+
+.inputGroup {
+  display: flex;
+  gap: 10px;
+}
+
+.field {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.sendBtn {
+  padding: 12px 24px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.sendBtn:hover {
+  background-color: #0056b3;
 }

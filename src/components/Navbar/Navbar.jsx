@@ -34,7 +34,6 @@ const Navbar = () => {
               isActive ? s.active : undefined
             }>Настройки</NavLink>
           </li>
-
         </ul>
       </nav>
     </aside>

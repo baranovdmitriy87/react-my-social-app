@@ -7,9 +7,9 @@ const Header = () => {
       <div className={s.logo}>
         <img src="/img/logo.png"
           alt="логотип"
-          width="90px" />
+          width="80px" />
           <p>
-            My social
+            My Social
           </p>
       </div>
     </header>

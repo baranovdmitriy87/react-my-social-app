@@ -11,7 +11,11 @@
 }
 
 .nav li {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
+}
+
+.nav li:last-child {
+  margin-top: 50px;
 }
 
 .nav a {
