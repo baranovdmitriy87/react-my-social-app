@@ -28,10 +28,10 @@ const Message = (props) => {
 const MessageSent = (props) => {
   return (
     <div className={s.message + ' ' + s.sent}>
-      <div class={s.info}>
-        <span class={s.time}>10:02</span>
+      <div className={s.info}>
+        <span className={s.time}>10:02</span>
       </div>
-      <p class={s.text}>{props.message}</p>
+      <p className={s.text}>{props.message}</p>
     </div>
   )
 }
