@@ -8,7 +8,8 @@ const DialogItem = (props) => {
 
   return (
     <li className={s.item}>
-      <NavLink to={path}> {props.name} </NavLink>
+      <NavLink to={path} className={({ isActive }) =>
+        isActive ? s.active : undefined}> {props.name} </NavLink>
     </li>
   )
 }
@@ -48,6 +49,7 @@ const Diologs = (props) => {
           <DialogItem name="Миша" id="4" />
           <DialogItem name="Никитос" id="5" />
           <DialogItem name="Константин" id="6" />
+          <DialogItem name="Елена" id="7" />
         </ul>
       </div>
 
@@ -60,7 +62,7 @@ const Diologs = (props) => {
           <Message message="Когда освободишься?" />
           <MessageSent message="Минут через 40 " />
           <Message message="ОК, я на связи, пиши-звони" />
-          <MessageSent message="Договорились" />
+          <MessageSent message="Договорились)))" />
         </div>
 
         {/* <form class="input">
