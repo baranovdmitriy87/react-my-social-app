@@ -14,7 +14,8 @@ const DialogItem = (props) => {
   )
 }
 
-const Message = (props) => {
+const Messages = (props) => {
+
   return (
     <div className={s.message}>
       <div className={s.info}>
@@ -26,7 +27,7 @@ const Message = (props) => {
   )
 }
 
-const MessageSent = (props) => {
+const MessagesSent = (props) => {
   return (
     <div className={s.message + ' ' + s.sent}>
       <div className={s.info}>
@@ -38,31 +39,44 @@ const MessageSent = (props) => {
 }
 
 const Diologs = (props) => {
+
+  let dialogs = [
+    { id: 1, name: 'Димас' },
+    { id: 2, name: 'Наташа' },
+    { id: 3, name: 'Владимир' },
+    { id: 4, name: 'Миша' },
+    { id: 5, name: 'Никитос' },
+    { id: 6, name: 'Константин' }
+  ]
+
+  let messages = [
+    { id: 1, message: 'Привет! Как дела?' },
+    { id: 2, message: 'Чем занимаешься?' },
+    { id: 3, message: 'Когда освободишься?' }
+  ]
+
+  let messagesSentData = [
+    { id: 1, message: 'Всё отлично, спасибо!' },
+    { id: 2, message: 'Программирую на react' },
+    { id: 3, message: 'Минут через 40' }
+  ]
+
+  let dialogElement = dialogs.map(d => <DialogItem name={d.name} id={d.id} />)
+  let messagesElement = messages.map(m => <Messages message={m.message} />)
+  let messagesSentElemen = messagesSentData.map(ms => <MessagesSent message={ms.message} />)
+
   return (
     <div className={s.dialogs}>
       <div className={s.dialogsWrapper}>
         <ul className={s.dialogsList}>
-
-          <DialogItem name="Димас" id="1" />
-          <DialogItem name="Наташа" id="2" />
-          <DialogItem name="Владимир" id="3" />
-          <DialogItem name="Миша" id="4" />
-          <DialogItem name="Никитос" id="5" />
-          <DialogItem name="Константин" id="6" />
-          <DialogItem name="Елена" id="7" />
+          {dialogElement}
         </ul>
       </div>
 
       <div className={s.messages}>
         <div className={s.messagesContainer}>
-          <Message message="Привет! Как дела?" />
-          <MessageSent message="Всё отлично, спасибо!" />
-          <Message message="Чем занимаешься?" />
-          <MessageSent message="Программирую на react" />
-          <Message message="Когда освободишься?" />
-          <MessageSent message="Минут через 40 " />
-          <Message message="ОК, я на связи, пиши-звони" />
-          <MessageSent message="Договорились)))" />
+          {messagesElement}
+          {messagesSentElemen}
         </div>
 
         {/* <form class="input">
