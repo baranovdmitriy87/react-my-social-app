@@ -19,10 +19,15 @@ const Navbar = () => {
               isActive ? s.active : undefined
             }>Сообщения</NavLink>
           </li>
-          <li>
+          <li className={s.friends}>
             <NavLink to="/friends" className={({ isActive }) =>
               isActive ? s.active : undefined
             }>Друзья</NavLink>
+            <div className={s.friendsWrapper}>
+            <span>Дмитрий</span>
+            <span>Владимир</span>
+            <span>Константин</span>
+            </div>
           </li>
           <li>
             <NavLink to="/photos" className={({ isActive }) =>

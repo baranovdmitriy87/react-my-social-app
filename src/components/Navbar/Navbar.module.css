@@ -32,6 +32,15 @@
   background-color: #e1e3e8;
 }
 
+.friendsWrapper {
+  display: none;
+}
+
+.nav .friends  a.active {
+  display: flex;
+  background-color: #e1e3e8;
+}
+
 .nav a:hover {
   background-color: #e1e3e8;
 }
