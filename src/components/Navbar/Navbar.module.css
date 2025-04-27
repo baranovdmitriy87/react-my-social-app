@@ -33,7 +33,7 @@
 }
 
 .friendsWrapper {
-  display: none;
+  display: block;
 }
 
 .nav .friends  a.active {

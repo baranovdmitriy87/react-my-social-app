@@ -1,3 +1,4 @@
+import React from 'react';
 import s from './../Dialogs.module.css';
 
 const Messages = (props) => {
@@ -7,8 +8,8 @@ const Messages = (props) => {
       <div className={s.info}>
         <span className={s.author}>Никитос</span>
         <span className={s.time}>10:00</span>
+        <p className={s.text}>{props.message}</p>
       </div>
-      <p className={s.text}>{props.message}</p>
     </div>
   )
 }

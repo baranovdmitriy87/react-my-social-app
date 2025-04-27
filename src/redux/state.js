@@ -1,12 +1,14 @@
+import { rerenderEntireTree } from '../render';
 
-let state = {
+const state = {
 
   profilePage: {
     posts: [
       { message: 'Привет! Как дела?', likesCount: 10 },
       { message: 'Это мой первый пост на этой странице', likesCount: 25 },
       { message: 'Very cool, I am very happy', likesCount: 35 }
-    ]
+    ],
+    newPostText: 'My-social App on React'
   },
 
   dialogsPage: {
@@ -30,7 +32,32 @@ let state = {
       { id: 2, message: 'Программирую на React' },
       { id: 3, message: 'Минут через 40' }
     ]
+  },
+
+  sideBar: {
+    friends: [
+      { id: 1, name: 'Никитос', avatar: 'ava1', },
+      { id: 2, name: 'Наташа', avatar: 'ava2', },
+      { id: 3, name: 'Дмитрий', avatar: 'ava3' }
+    ]
   }
 }
+
+
+export const addPost = (postMessage) => {
+  let newPost = {
+    id: 5,
+    message: postMessage,
+    likesCount: 0
+  }
+  state.profilePage.posts.push(newPost);
+  rerenderEntireTree(state)
+}
+
+export const updateNewPostText = (newText) => {
+  state.profilePage.newPostText = newText;
+  rerenderEntireTree(state)
+}
+
 
 export default state

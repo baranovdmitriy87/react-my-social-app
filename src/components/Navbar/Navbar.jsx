@@ -1,14 +1,16 @@
 import React from 'react';
 import s from './Navbar.module.css';
+// import FriendsList from './../Friends/FriendsList/FriendsList';
 import { NavLink } from 'react-router-dom';
 
 
-const Navbar = () => {
+const Navbar = (props) => {
+
+  // let friendsList = props.state.friends.map(f => <FriendsList name={f.name} id={f.id} />)
   return (
     <aside className={s.navbar}>
       <nav>
         <ul className={s.nav}>
-
           <li>
             <NavLink to="/profile" className={({ isActive }) =>
               isActive ? s.active : undefined
@@ -24,9 +26,7 @@ const Navbar = () => {
               isActive ? s.active : undefined
             }>Друзья</NavLink>
             <div className={s.friendsWrapper}>
-            <span>Дмитрий</span>
-            <span>Владимир</span>
-            <span>Константин</span>
+              {/* {friendsList} */}
             </div>
           </li>
           <li>
