@@ -17,10 +17,15 @@ const App = (props) => {
         <Routes>
           <Route path='/profile' element={<Profile
             profilePage={props.state.profilePage}
-            addPost={props.addPost}
-            updateNewPostText={props.updateNewPostText} />} />
-          <Route path="/dialogs" element={<Dialogs state={props.state.dialogsPage} />} />
-          <Route path="/dialogs/:id" element={<Dialogs state={props.state.dialogsPage} />} />
+            dispatch={props.dispatch} />} />
+          <Route path="/dialogs" element={<Dialogs
+            state={props.state.dialogsPage}
+            addMessage={props.addMessage}
+            updateNewMessageText={props.updateNewMessageText} />} />
+          <Route path="/dialogs/:id" element={<Dialogs
+            state={props.state.dialogsPage}
+            addMessage={props.addMessage}
+            updateNewMessageText={props.updateNewMessageText} />} />
           <Route path='/friends' element={<Friends state={props.state.sideBar} />} />
           <Route path='/photos' element={<Photos />} />
         </Routes>
