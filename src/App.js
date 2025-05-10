@@ -1,4 +1,3 @@
-import React from 'react';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
@@ -18,14 +17,8 @@ const App = (props) => {
           <Route path='/profile' element={<Profile
             profilePage={props.state.profilePage}
             dispatch={props.dispatch} />} />
-          <Route path="/dialogs" element={<Dialogs
-            state={props.state.dialogsPage}
-            addMessage={props.addMessage}
-            updateNewMessageText={props.updateNewMessageText} />} />
-          <Route path="/dialogs/:id" element={<Dialogs
-            state={props.state.dialogsPage}
-            addMessage={props.addMessage}
-            updateNewMessageText={props.updateNewMessageText} />} />
+          <Route path="/dialogs" element={<Dialogs store={props.store} />} />
+          <Route path="/dialogs/:id" element={<Dialogs store={props.store} />} />
           <Route path='/friends' element={<Friends state={props.state.sideBar} />} />
           <Route path='/photos' element={<Photos />} />
         </Routes>

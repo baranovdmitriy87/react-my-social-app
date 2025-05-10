@@ -1,48 +1,47 @@
-import React from "react";
 import Messages from './Messages/Messages';
-// import MessagesSent from './MessagesSent/MessagesSent';
+import { sendMessageCreator, updateNewMessageBodyCreator } from '../../redux/state';
 import DialogItem from './DialogItem/DialogItem';
 import s from '../Dialogs/Dialogs.module.css';
 
 const Dialog = (props) => {
+  let state = props.store.getState().dialogsPage;
 
-  const dialogElement = props.state.dialogs.map(el => <DialogItem name={el.name} id={el.id} />)
-  const messagesElement = props.state.messages.map(el => <Messages message={el.message} />)
-  // const messagesSentElemen = props.state.messagesSent.map(ms => <MessagesSent message={ms.message} />)
+  let dialogElements = state.dialogs.map(el => <DialogItem name={el.name} id={el.id} />)
+  let messagesElements = state.messages.map(el => <Messages message={el.message} />)
+  let newMessageBody = state.newMessageBody
 
-  const newMessageElement = React.createRef();
-
-  const addMessage = () => {
+  const onSendMessage = () => {
     debugger
-    let text = newMessageElement.current.value;
-    props.addMessage(text)
+    props.store.dispatch(sendMessageCreator())
   }
 
-  const onMessageChange = () => {
-    let text = newMessageElement.current.value;
+  const onNewMessageChange = (e) => {
     debugger
-    props.updateNewMessageText(text)
+    let body = e.target.value;
+    props.store.dispatch(updateNewMessageBodyCreator(body))
   }
 
   return (
     <div className={s.dialogs}>
       <div className={s.dialogsWrapper}>
         <ul className={s.dialogsList}>
-          {dialogElement}
+          <div>
+            {dialogElements}
+          </div>
         </ul>
       </div>
 
       <div className={s.messages}>
         <div className={s.messagesContainer}>
           <textarea className={s.field}
-            ref={newMessageElement}
-            value={props.newMessageText}
-            onChange={onMessageChange}
-            name="new-message" id="new-message" placeholder='Напишите сообщение' />
+            value={newMessageBody}
+            onChange={onNewMessageChange}
+            placeholder='Напишите сообщение' />
           <button type='button' className={s.button}
-            onClick={addMessage}>Отправить</button>
-          {messagesElement}
-          {/* {messagesSentElemen} */}
+            onClick={onSendMessage}>Отправить</button>
+          <div>
+            {messagesElements}
+          </div>
         </div>
       </div>
     </div>

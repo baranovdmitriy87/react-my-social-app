@@ -1,26 +1,23 @@
 import React from 'react';
 import Post from './Posts/Post';
 import s from './MyPosts.module.css';
+import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../redux/state';
+// import { type } from '@testing-library/user-event/dist/type';
 
 const MyPosts = (props) => {
 
-  const postsElement = props.posts.map(el => <Post message={el.message} likesCount={el.likesCount} />)
+  let postsElements = props.posts.map(el => <Post message={el.message} likesCount={el.likesCount} />)
 
-  const newPostElement = React.createRef();
+  let newPostElement = React.createRef();
 
   const addPost = () => {
-    // debugger
-    // let text = newPostElement.current.value;
-    // props.addPost(text);
-    props.dispatch({ type: 'ADD-POST' });
-
+    props.dispatch(addPostActionCreator());  // объект(action) задиспатчем напрямую через функцию
   }
 
   const onPostChange = () => {
-
     let text = newPostElement.current.value;
-    // props.updateNewPostText(text);
-    props.dispatch({ type: 'UPDATE-NEW-POST-TEXT', newText: text });
+    let action = updateNewPostTextActionCreator(text);
+    props.dispatch(action);  // объект (action) задиспатчем через переменную action
   }
 
   return (
@@ -32,8 +29,6 @@ const MyPosts = (props) => {
             ref={newPostElement}
             value={props.newPostText}
             onChange={onPostChange}
-            name="new-post"
-            id="newPost"
             placeholder='new post' />
           <div className={s.actions}>
             <button className={s.button} onClick={addPost}>Отправить</button>
@@ -43,7 +38,9 @@ const MyPosts = (props) => {
           </div>
         </div>
       </div>
-      {postsElement}
+      <div>
+        {postsElements}
+      </div>
     </div>
   )
 }
