@@ -1,16 +1,17 @@
 import Messages from './Messages/Messages';
-import { sendMessageCreator, updateNewMessageBodyCreator } from '../../redux/state';
+import { sendMessageCreator, updateNewMessageBodyCreator } from '../../redux/dialogs-reduser';
 import DialogItem from './DialogItem/DialogItem';
 import s from '../Dialogs/Dialogs.module.css';
 
 const Dialog = (props) => {
+
   let state = props.store.getState().dialogsPage;
 
   let dialogElements = state.dialogs.map(el => <DialogItem name={el.name} id={el.id} />)
   let messagesElements = state.messages.map(el => <Messages message={el.message} />)
   let newMessageBody = state.newMessageBody
 
-  const onSendMessage = () => {
+  const onSendMessageClick = () => {
     debugger
     props.store.dispatch(sendMessageCreator())
   }
@@ -37,8 +38,8 @@ const Dialog = (props) => {
             value={newMessageBody}
             onChange={onNewMessageChange}
             placeholder='Напишите сообщение' />
-          <button type='button' className={s.button}
-            onClick={onSendMessage}>Отправить</button>
+          <button className={s.button}
+            onClick={onSendMessageClick}>Отправить</button>
           <div>
             {messagesElements}
           </div>
