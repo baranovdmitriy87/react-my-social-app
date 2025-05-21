@@ -11,7 +11,7 @@ let store = {
         { message: 'Very cool, I am very happy', likesCount: 35 }
       ],
 
-      newPostText: 'My-social App on React'
+      newPostText: ""
     },
 
     dialogsPage: {

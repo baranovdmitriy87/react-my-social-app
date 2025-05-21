@@ -8,6 +8,7 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 
 const App = (props) => {
+
   return (
     <div className="app-container">
       <Header />
@@ -16,6 +17,7 @@ const App = (props) => {
         <Routes>
           <Route path='/profile' element={<Profile
             profilePage={props.state.profilePage}
+            store={props.store}
             dispatch={props.dispatch} />} />
           <Route path="/dialogs" element={<Dialogs store={props.store} />} />
           <Route path="/dialogs/:id" element={<Dialogs store={props.store} />} />
