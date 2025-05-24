@@ -5,10 +5,10 @@ let initialState = {
     { id: 3, name: 'Дмитрий', avatar: 'ava3' }
   ]
 }
-const sidebarReduser = (state = initialState, action) => {
+const sidebarReducer = (state = initialState, action) => {
 
 
   return state;
 }
 
-export default sidebarReduser;
+export default sidebarReducer;

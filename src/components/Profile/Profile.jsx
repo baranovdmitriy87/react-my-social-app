@@ -1,9 +1,8 @@
-import s from './Profile.module.css';
-import MyPosts from './MyPosts/MyPosts';
+import MyPostsContainer from './MyPosts/MyPostsContainer';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
+import s from './Profile.module.css';
 
 const Profile = (props) => {
-  // debugger
   return (
     <div className={s.profile}>
       <img
@@ -12,10 +11,7 @@ const Profile = (props) => {
         className={s.photo}
       />
       <ProfileInfo />
-      <MyPosts
-        posts={props.profilePage.posts}
-        dispatch={props.dispatch}
-        newPostText={props.profilePage.newPostText} />
+      <MyPostsContainer store={props.store} />
     </div>
   );
 };

@@ -1,7 +1,6 @@
 import React from 'react';
 import Post from './Posts/Post';
 import s from './MyPosts.module.css';
-import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../redux/profile-reduser';
 
 const MyPosts = (props) => {
 
@@ -9,14 +8,13 @@ const MyPosts = (props) => {
 
   let newPostElement = React.createRef();
 
-  const addPost = () => {
-    props.dispatch(addPostActionCreator());  // объект(action) задиспатчем напрямую через функцию
+  const onAddPost = () => {
+    props.addPost();
   }
 
   const onPostChange = () => {
     let text = newPostElement.current.value;
-    let action = updateNewPostTextActionCreator(text);
-    props.dispatch(action);  // объект (action) задиспатчем через переменную action
+    props.updateNewPostText(text);
   }
 
   return (
@@ -30,8 +28,8 @@ const MyPosts = (props) => {
             onChange={onPostChange}
             placeholder='new post' />
           <div className={s.actions}>
-            <button className={s.button} onClick={addPost}>Отправить</button>
-            <a className={s.link} href="#s">
+            <button className={s.button} onClick={onAddPost}>Отправить</button>
+            <a className={s.link} href='#s'>
               <img src="https://sun9-7.userapi.com/impg/fe3coAMSfPccUmjE1W7VMl1YLhCkTHiYWZyviQ/tvyvPBG0ndE.jpg?size=525x525&quality=96&sign=df8502fe2e0c16fc1f104146d5d276f8&type=album" alt="repost" />
             </a>
           </div>
