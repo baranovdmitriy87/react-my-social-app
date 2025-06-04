@@ -1,12 +1,9 @@
 import React from 'react';
 import s from './Navbar.module.css';
-// import FriendsList from './../Friends/FriendsList/FriendsList';
 import { NavLink } from 'react-router-dom';
-
 
 const Navbar = (props) => {
 
-  // let friendsList = props.state.friends.map(f => <FriendsList name={f.name} id={f.id} />)
   return (
     <aside className={s.navbar}>
       <nav>
@@ -20,6 +17,11 @@ const Navbar = (props) => {
             <NavLink to="/dialogs" className={({ isActive }) =>
               isActive ? s.active : undefined
             }>Сообщения</NavLink>
+          </li>
+          <li>
+            <NavLink to="/users" className={({ isActive }) =>
+              isActive ? s.active : undefined
+            }>Пользователи</NavLink>
           </li>
           <li className={s.friends}>
             <NavLink to="/friends" className={({ isActive }) =>

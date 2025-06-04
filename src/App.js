@@ -1,11 +1,12 @@
+import './App.css';
+import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
 import Friends from './components/Friends/Friends';
 import Photos from './components/Photos/Photo';
-import './App.css';
-import { Routes, Route } from 'react-router-dom';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
+import UsersContainer from './components/Users/UsersContainer';
 
 const App = (props) => {
 
@@ -20,6 +21,7 @@ const App = (props) => {
             <Route index element={<DialogsContainer />} />
             <Route path=":id" element={<DialogsContainer />} />
           </Route>
+          <Route path='/users' element={<UsersContainer />} />
           <Route path='/friends' element={<Friends store={props.store} />} />
           <Route path='/photos' element={<Photos />} />
         </Routes>
