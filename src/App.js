@@ -17,9 +17,9 @@ const App = (props) => {
       <main className="main-content">
         <Routes>
           <Route path='/profile' element={<Profile />} />
-          <Route path="/dialogs">
+          <Route path='/dialogs'>
             <Route index element={<DialogsContainer />} />
-            <Route path=":id" element={<DialogsContainer />} />
+            <Route path=':id' element={<DialogsContainer />} />
           </Route>
           <Route path='/users' element={<UsersContainer />} />
           <Route path='/friends' element={<Friends store={props.store} />} />
