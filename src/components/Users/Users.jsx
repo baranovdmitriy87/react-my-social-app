@@ -13,9 +13,9 @@ class Users extends React.Component {
     })
   }
 
-  onPagesChanged = (pageNumber) => {
+  onPageChanged = (pageNumber) => {
     this.props.setCurrentPage(pageNumber);
-    axios.get(`https://jsonplaceholder.typicode.com/users?pages=${this.props.pageNumber}&count=${this.props.pageSize}`).then(response => {
+    axios.get(`https://jsonplaceholder.typicode.com/users?pages=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
       this.props.setUsers(response.data);
       // this.props.setUsers(response.data.item); /**Для запроса на сервак "https://social-network.samuraijs.com/api/1.0/users" */
     })
@@ -32,9 +32,10 @@ class Users extends React.Component {
 
     return <div className={style.usersContainer}>
       <div className={style.pagination}>
+
         {pages.map(p => {
           return <span className={this.props.currentPage === p && style.selectedPage}
-            onClick={(e) => { this.onPagesChanged(p) }}>{p}</span>
+            onClick={() => { this.onPageChanged(p) }}>{p}</span>
         })}
       </div>
       {
