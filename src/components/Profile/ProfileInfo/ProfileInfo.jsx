@@ -1,7 +1,10 @@
-import React from 'react';
-import s from './ProfileInfo.module.css';
+import Preloader from '../../common/Preloader';
+import style from './ProfileInfo.module.css';
 
-const ProfileInfo = () => {
+const ProfileInfo = (props) => {
+  if (!props.profile) {
+    return <Preloader />;
+  }
 
   const contacts = [
     { icon: '📱', text: '+7 (906) 735-11-37' },
@@ -9,21 +12,22 @@ const ProfileInfo = () => {
     { icon: '🏠', text: 'Москва, Россия' }
   ];
 
+
   return (
-    <div className={s.info}>
-      <img
-        src="https://basik.ru/images/jason_lee_childs/085_jason_lee_childs.jpg"
-        alt="Аватар"
-        className={s.avatar}
+    <div className={style.info}>
+
+      <img src={props.profile.photos.large}
+        alt={`${props.profile.fullName || 'User'}'s avatar`}
+        className={style.avatar}
       />
 
-      <div className={s.user}>
+      <div className={style.user}>
         <h2>Дмитрий Баранов</h2>
         <p>Добро пожаловать на мою страницу!</p>
 
-        <div className={s.contacts}>
+        <div className={style.contacts}>
           {contacts.map((contact, index) => (
-            <div key={index} className={s.item}>
+            <div key={index} className={style.item}>
               <span>{contact.icon}</span> {contact.text}
             </div>
           ))}
